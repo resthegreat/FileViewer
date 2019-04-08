@@ -1,5 +1,3 @@
-package com.resmagnus.fileexplorer;
-
 import java.io.File;
 import java.util.Scanner;
 
