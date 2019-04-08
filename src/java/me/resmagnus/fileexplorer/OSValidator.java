@@ -1,3 +1,5 @@
+package me.resmagnus.fileexplorer;
+
 public class OSValidator {
 
     private static String OS = System.getProperty("os.name").toLowerCase();
