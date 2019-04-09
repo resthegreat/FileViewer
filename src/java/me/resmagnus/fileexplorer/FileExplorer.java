@@ -22,7 +22,7 @@ public class FileExplorer {
             addDirectory(new File("/"));
         }
 
-        currentDirectoryFiles = currentDirectoryFilesToArray();
+        currentDirectoryFiles = directoryFilesToArray();
     }
 
     public void printCurrentDirectoryFiles() {
@@ -35,7 +35,7 @@ public class FileExplorer {
     public void addDirectory(File dir) {
         if(dir.isDirectory()) {
             directoryStack.add(dir);
-            currentDirectoryFiles = currentDirectoryFilesToArray();
+            currentDirectoryFiles = directoryFilesToArray();
         }
         else {
             System.out.println("Error: Selected file is not a directory.\n");
@@ -48,7 +48,7 @@ public class FileExplorer {
         }
     }
 
-    public File[] currentDirectoryFilesToArray() {
+    public File[] directoryFilesToArray() {
         File[] s = directoryStack.get(directoryStack.size() - 1).listFiles();
         if(s != null) {
             return s;
@@ -66,7 +66,7 @@ public class FileExplorer {
     }
 
     public void resetCurrentDirectoryFiles() {
-        currentDirectoryFiles = currentDirectoryFilesToArray();
+        currentDirectoryFiles = directoryFilesToArray();
     }
 
     public void openFile(File file) {
