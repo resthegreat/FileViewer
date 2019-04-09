@@ -28,7 +28,7 @@ public class Main {
             switch(option) {
 
                 case "0" :
-                    File[] s = fileExplorer.currentDirectoryFilesToArray();
+                    File[] s = fileExplorer.getCurrentDirectoryFiles();
                     System.out.print("Enter an index: ");
                     userIndex = keyboard.nextLine();
                     try {
@@ -42,13 +42,13 @@ public class Main {
 
                 case "1" :
                     fileExplorer.removeLastDirectory();
+                    fileExplorer.resetCurrentDirectoryFiles();
                     System.out.println();
                     break;
 
                 case "2" :
-                    s = fileExplorer.currentDirectoryFilesToArray();
-                    System.out.print("Enter an d" +
-                            "index: ");
+                    s = fileExplorer.getCurrentDirectoryFiles();
+                    System.out.print("Enter an index: ");
                     userIndex = keyboard.nextLine();
                     try {
                         userIndexInt = Integer.parseInt(userIndex);
@@ -73,8 +73,8 @@ public class Main {
     public static void printMenu() {
         System.out.println("/////////////MENU////////////\n");
         System.out.println("(0) Go into a folder");
-        System.out.println("(1) Open a file");
-        System.out.println("(2) Go back");
+        System.out.println("(1) Go back");
+        System.out.println("(2) Open a file");
         System.out.println("(3) Quit the program\n");
     }
 }
