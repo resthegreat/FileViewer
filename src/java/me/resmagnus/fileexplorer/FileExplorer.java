@@ -21,6 +21,8 @@ public class FileExplorer {
         else if(OSValidator.isUnix()) {
             addDirectory(new File("/"));
         }
+
+        currentDirectoryFiles = currentDirectoryFilesToArray();
     }
 
     public void printCurrentDirectoryFiles() {
@@ -43,7 +45,6 @@ public class FileExplorer {
     public void removeLastDirectory() {
         if(directoryStack.size() != 1) {
             directoryStack.remove(directoryStack.get(directoryStack.size() - 1));
-            currentDirectoryFiles = currentDirectoryFilesToArray();
         }
     }
 
@@ -58,6 +59,14 @@ public class FileExplorer {
             System.out.println("Error: You do not have permission to view the contents of this folder.\n");
             return s = directoryStack.get(directoryStack.size() - 1).listFiles();
         }
+    }
+
+    public File[] getCurrentDirectoryFiles() {
+        return currentDirectoryFiles;
+    }
+
+    public void resetCurrentDirectoryFiles() {
+        currentDirectoryFiles = currentDirectoryFilesToArray();
     }
 
     public void openFile(File file) {
