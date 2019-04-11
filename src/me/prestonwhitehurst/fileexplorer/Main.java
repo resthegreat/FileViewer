@@ -1,4 +1,4 @@
-package me.resmagnus.fileexplorer;
+package me.prestonwhitehurst.fileexplorer;
 
 import java.io.File;
 import java.util.Scanner;
