@@ -1,4 +1,4 @@
-package me.resmagnus.fileexplorer;
+package me.prestonwhitehurst.fileexplorer;
 
 public class OSValidator {
 
