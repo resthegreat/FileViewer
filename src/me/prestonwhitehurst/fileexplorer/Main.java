@@ -33,7 +33,7 @@ public class Main {
                     userIndex = keyboard.nextLine();
                     try {
                         userIndexInt = Integer.parseInt(userIndex);
-                        fileExplorer.addDirectory(s[userIndexInt]);
+                        fileExplorer.setCurrentDirectory(s[userIndexInt]);
                     } catch(NumberFormatException e) {
                             System.out.println("Error: Entered data is not an index.\n");
                     }
@@ -41,8 +41,7 @@ public class Main {
                     break;
 
                 case "1" :
-                    fileExplorer.removeLastDirectory();
-                    fileExplorer.resetCurrentDirectoryFiles();
+                    fileExplorer.removeCurrentDirectory();
                     System.out.println();
                     break;
 
