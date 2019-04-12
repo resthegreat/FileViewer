@@ -15,58 +15,55 @@ public class FileExplorer {
         directoryStack = new ArrayList<>();
 
         if(OSValidator.isWindows()) {
-            addDirectory(new File(System.getenv("SystemDrive") + "//"));
+            setCurrentDirectory(new File(System.getenv("SystemDrive") + "//"));
         }
 
         else if(OSValidator.isUnix()) {
-            addDirectory(new File("/"));
+            setCurrentDirectory(new File("/"));
         }
-
-        currentDirectoryFiles = directoryFilesToArray();
     }
 
-    public void printCurrentDirectoryFiles() {
-        for(int i = 0; i < currentDirectoryFiles.length; i++) {
-            System.out.println(i + " " + currentDirectoryFiles[i].getName());
-        }
-        System.out.println("\n");
-    }
-
-    public void addDirectory(File dir) {
+    public void setCurrentDirectory(File dir) {
         if(dir.isDirectory()) {
             directoryStack.add(dir);
-            currentDirectoryFiles = directoryFilesToArray();
+            setCurrentDirectoryFiles();
+
+            if(currentDirectoryFiles == null) {
+                System.out.println("Error: You do not have permission to view the contents of this folder.\n");
+                removeCurrentDirectory();
+            }
         }
+
         else {
             System.out.println("Error: Selected file is not a directory.\n");
         }
     }
 
-    public void removeLastDirectory() {
+    public void removeCurrentDirectory() {
         if(directoryStack.size() != 1) {
             directoryStack.remove(directoryStack.get(directoryStack.size() - 1));
+            setCurrentDirectoryFiles();
         }
     }
 
-    public File[] directoryFilesToArray() {
-        File[] s = directoryStack.get(directoryStack.size() - 1).listFiles();
-        if(s != null) {
-            return s;
-        }
+    public File getCurrentDirectory() {
+        return directoryStack.get(directoryStack.size() - 1);
+    }
 
-        else {
-            removeLastDirectory();
-            System.out.println("Error: You do not have permission to view the contents of this folder.\n");
-            return s = directoryStack.get(directoryStack.size() - 1).listFiles();
-        }
+    public void setCurrentDirectoryFiles() {
+        currentDirectoryFiles = directoryStack.get(directoryStack.size() - 1).listFiles();;
     }
 
     public File[] getCurrentDirectoryFiles() {
         return currentDirectoryFiles;
     }
 
-    public void resetCurrentDirectoryFiles() {
-        currentDirectoryFiles = directoryFilesToArray();
+    public void printCurrentDirectoryFiles() {
+        System.out.println("Current directory: " + getCurrentDirectory().getAbsolutePath());
+        for(int i = 0; i < currentDirectoryFiles.length; i++) {
+            System.out.println(i + " " + currentDirectoryFiles[i].getName());
+        }
+        System.out.println("\n");
     }
 
     public void openFile(File file) {
