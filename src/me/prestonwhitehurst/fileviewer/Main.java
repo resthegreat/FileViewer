@@ -1,4 +1,4 @@
-package me.prestonwhitehurst.fileexplorer;
+package me.prestonwhitehurst.fileviewer;
 
 import java.io.File;
 import java.util.Scanner;
@@ -8,8 +8,7 @@ public class Main {
     private static Scanner keyboard;
 
     public static void main(String[] args) {
-
-        FileExplorer fileExplorer = new FileExplorer();
+        FileViewer fileViewer = new FileViewer();
         keyboard = new Scanner(System.in);
         boolean loop = true;
 
@@ -18,7 +17,7 @@ public class Main {
             int userIndexInt;
             String option;
 
-            fileExplorer.printCurrentDirectoryFiles();
+            fileViewer.printCurrentDirectoryFiles();
 
             printMenu();
 
@@ -28,12 +27,12 @@ public class Main {
             switch(option) {
 
                 case "0" :
-                    File[] s = fileExplorer.getCurrentDirectoryFiles();
+                    File[] s = fileViewer.getCurrentDirectoryFiles();
                     System.out.print("Enter an index: ");
                     userIndex = keyboard.nextLine();
                     try {
                         userIndexInt = Integer.parseInt(userIndex);
-                        fileExplorer.setCurrentDirectory(s[userIndexInt]);
+                        fileViewer.setCurrentDirectory(s[userIndexInt]);
                     } catch(NumberFormatException e) {
                             System.out.println("Error: Entered data is not an index.\n");
                     }
@@ -41,17 +40,17 @@ public class Main {
                     break;
 
                 case "1" :
-                    fileExplorer.removeCurrentDirectory();
+                    fileViewer.removeCurrentDirectory();
                     System.out.println();
                     break;
 
                 case "2" :
-                    s = fileExplorer.getCurrentDirectoryFiles();
+                    s = fileViewer.getCurrentDirectoryFiles();
                     System.out.print("Enter an index: ");
                     userIndex = keyboard.nextLine();
                     try {
                         userIndexInt = Integer.parseInt(userIndex);
-                        fileExplorer.openFile(s[userIndexInt]);
+                        fileViewer.openFile(s[userIndexInt]);
                     }catch (NumberFormatException e) {
                         System.out.println("Error: Entered data is not an index.\n");
                     }
