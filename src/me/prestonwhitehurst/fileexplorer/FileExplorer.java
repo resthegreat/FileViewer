@@ -38,16 +38,16 @@ public class FileExplorer {
             System.out.println("Error: Selected file is not a directory.\n");
         }
     }
+    
+    public File getCurrentDirectory() {
+        return directoryStack.get(directoryStack.size() - 1);
+    }
 
     public void removeCurrentDirectory() {
         if(directoryStack.size() != 1) {
             directoryStack.remove(getCurrentDirectory());
             setCurrentDirectoryFiles();
         }
-    }
-
-    public File getCurrentDirectory() {
-        return directoryStack.get(directoryStack.size() - 1);
     }
 
     public void setCurrentDirectoryFiles() {
