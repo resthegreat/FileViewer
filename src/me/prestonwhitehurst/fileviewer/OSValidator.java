@@ -1,7 +1,6 @@
 package me.prestonwhitehurst.fileviewer;
 
 public class OSValidator {
-
     private static String OS = System.getProperty("os.name").toLowerCase();
 
     public static boolean isWindows() {
@@ -23,13 +22,21 @@ public class OSValidator {
     public static String getOS(){
         if(isWindows()) {
             return "win";
-        } else if(isMac()) {
+        }
+        
+        else if(isMac()) {
             return "osx";
-        } else if(isUnix()) {
+        }
+        
+        else if(isUnix()) {
             return "uni";
-        } else if(isSolaris()) {
+        }
+        
+        else if(isSolaris()) {
             return "sol";
-        } else {
+        }
+        
+        else {
             return "err";
         }
     }
