@@ -6,12 +6,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class FileViewer {
-
     private ArrayList<File> directoryStack;
     private File[] currentDirectoryFiles;
 
     public FileViewer() {
-
         directoryStack = new ArrayList<>();
 
         if(OSValidator.isWindows()) {
@@ -63,6 +61,7 @@ public class FileViewer {
         for(int i = 0; i < currentDirectoryFiles.length; i++) {
             System.out.println(i + " " + currentDirectoryFiles[i].getName());
         }
+        
         System.out.println("\n");
     }
 
@@ -74,6 +73,7 @@ public class FileViewer {
                 System.out.println("Error: Could not open file.\n");
             }
         }
+        
         else {
             System.out.println("Error: Selected file is not a file.\n");
         }
