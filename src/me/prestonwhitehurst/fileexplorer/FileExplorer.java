@@ -41,7 +41,7 @@ public class FileExplorer {
 
     public void removeCurrentDirectory() {
         if(directoryStack.size() != 1) {
-            directoryStack.remove(directoryStack.get(directoryStack.size() - 1));
+            directoryStack.remove(getCurrentDirectory());
             setCurrentDirectoryFiles();
         }
     }
@@ -51,7 +51,7 @@ public class FileExplorer {
     }
 
     public void setCurrentDirectoryFiles() {
-        currentDirectoryFiles = directoryStack.get(directoryStack.size() - 1).listFiles();;
+        currentDirectoryFiles = getCurrentDirectory().listFiles();;
     }
 
     public File[] getCurrentDirectoryFiles() {
