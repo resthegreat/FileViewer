@@ -1,16 +1,16 @@
-package me.prestonwhitehurst.fileexplorer;
+package me.prestonwhitehurst.fileviewer;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class FileExplorer {
+public class FileViewer {
 
     private ArrayList<File> directoryStack;
     private File[] currentDirectoryFiles;
 
-    public FileExplorer() {
+    public FileViewer() {
 
         directoryStack = new ArrayList<>();
 
