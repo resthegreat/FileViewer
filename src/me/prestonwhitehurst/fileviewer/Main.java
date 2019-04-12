@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Scanner;
 
 public class Main {
-
     private static Scanner keyboard;
 
     public static void main(String[] args) {
@@ -25,17 +24,18 @@ public class Main {
             option = keyboard.nextLine();
 
             switch(option) {
-
                 case "0" :
                     File[] s = fileViewer.getCurrentDirectoryFiles();
                     System.out.print("Enter an index: ");
                     userIndex = keyboard.nextLine();
+                    
                     try {
                         userIndexInt = Integer.parseInt(userIndex);
                         fileViewer.setCurrentDirectory(s[userIndexInt]);
                     } catch(NumberFormatException e) {
                             System.out.println("Error: Entered data is not an index.\n");
                     }
+                    
                     System.out.println();
                     break;
 
@@ -48,12 +48,14 @@ public class Main {
                     s = fileViewer.getCurrentDirectoryFiles();
                     System.out.print("Enter an index: ");
                     userIndex = keyboard.nextLine();
+                    
                     try {
                         userIndexInt = Integer.parseInt(userIndex);
                         fileViewer.openFile(s[userIndexInt]);
                     }catch (NumberFormatException e) {
                         System.out.println("Error: Entered data is not an index.\n");
                     }
+                    
                     System.out.println();
                     break;
 
