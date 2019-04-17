@@ -49,7 +49,7 @@ public class FileViewer {
     }
 
     public void setCurrentDirectoryFiles() {
-        currentDirectoryFiles = getCurrentDirectory().listFiles();;
+        currentDirectoryFiles = getCurrentDirectory().listFiles();
     }
 
     public File[] getCurrentDirectoryFiles() {
