@@ -1,4 +1,4 @@
-package me.prestonwhitehurst.fileviewer;
+package me.resthegreat.fileviewer;
 
 public class OSValidator {
     private static String OS = System.getProperty("os.name").toLowerCase();
