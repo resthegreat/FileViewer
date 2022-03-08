@@ -1,4 +1,4 @@
-package me.prestonwhitehurst.fileviewer;
+package me.resthegreat.fileviewer;
 
 import java.awt.*;
 import java.io.File;
