@@ -1,4 +1,4 @@
-package me.prestonwhitehurst.fileviewer;
+package me.resthegreat.fileviewer;
 
 import java.io.File;
 import java.util.Scanner;
